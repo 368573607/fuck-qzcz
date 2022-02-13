@@ -1,6 +1,6 @@
 <template>
   <h1>OHHH!!</h1>
-  <h1>还有 {{ Math.trunc((targetTime - currentTime) / 1000) }} 秒开学</h1>
+  <h1>还有 {{ remainingTime }} 秒开学</h1>
 </template>
 
 <script>
@@ -13,9 +13,8 @@ export default {
     };
   },
   mounted: function () {
-    const self = this;
-    this.timer = setInterval(function () {
-      self.currentTime = new Date();
+    this.timer = setInterval(() => {
+      this.currentTime = new Date();
     }, 1000);
   },
   unmounted: function () {
